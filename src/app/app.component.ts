@@ -11,13 +11,17 @@ import { Component } from "@angular/core";
 export class AppComponent {
 
     name = "Mircea"
-    imageUrl = "https://picsum.photos/id/237/500/500";
+    imageUrl = "https://picsum.photos/id/237/300/300";
 
-    getName () {
+    getName() {
         return this.name;
     }
 
     changeImage(e: KeyboardEvent) {
         this.imageUrl = (e.target as HTMLInputElement).value;
     }
-}
+
+    logImage(event: string) {
+        console.log(event);
+    }
+} 
