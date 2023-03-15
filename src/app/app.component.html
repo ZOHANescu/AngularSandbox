@@ -1,9 +1,31 @@
+<p *ngIf="blueClass">This is the day we really understand Angular but still we don't know much.</p>
+
+<button 
+    (click)="blueClass = !blueClass"
+    [ngClass]="{ blue: blueClass }"
+    [ngStyle]="{ 'font-size.px': fontSize }"
+    >Change</button>
+
+<hr>
+
 <input (keyup)="changeImage($event)" [value]="imageUrl">
 
-<app-post [img]="imageUrl" (imageSelected)="logImage($event)">
-    <p>Here we are learning Angular</p>
+<hr>
+
+<p>Hello {{ name | titlecase }}! </p>
+
+<app-post 
+    *ngFor="let image of imagesList; let i = index"
+    [img]="image"
+    (imageSelected)="logImage($event)">
+<p>{{ i + 1 }}. Here we are learning Angular</p>
 </app-post>
 
-<p>Hello {{ getName().toUpperCase() }}! </p>
 <p>Hello {{ getName() }}! </p>
 <p>{{ 2 + 22 }}</p>
+<p>{{ currentDate | date: 'shortTime' }}</p>
+<p>{{ currentDate | date: 'fullDate' }}</p>
+<p>{{ currentDate | date: 'dd MM YY' }}</p>
+<p>{{ cost | currency: 'JPY' }}</p>
+<p>{{ temperature | number: '0.0-1' }}</p>
+<pre>{{ pizza | json}}</pre>
